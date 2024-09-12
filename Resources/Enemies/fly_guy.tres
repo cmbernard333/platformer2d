@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://bpt22g8nbbcsy"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_type.gd" id="1_ey2ih"]
+[ext_resource type="Texture2D" uid="uid://dpfw6ck4mow1p" path="res://Sprites/Characters/character_0024.png" id="2_kjahr"]
+
+[resource]
+script = ExtResource("1_ey2ih")
+display_name = "Fly Guy"
+move_speed = 30.0
+move_dir = Vector2(0, -50)
+texture = ExtResource("2_kjahr")

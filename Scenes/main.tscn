@@ -1,27 +1,20 @@
-[gd_scene load_steps=5 format=4 uid="uid://dubanbsjjmxaj"]
+[gd_scene load_steps=6 format=4 uid="uid://dubanbsjjmxaj"]
 
 [ext_resource type="TileSet" uid="uid://7qpggw78giuw" path="res://Resources/Tilesets/main.tres" id="1_2jcgy"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="2_v2r7k"]
-[ext_resource type="Texture2D" uid="uid://c3nvqgsbwhv3a" path="res://Sprites/Characters/character_0004.png" id="3_rviuf"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7du6m"]
-height = 24.0
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_wktnc"]
+[ext_resource type="PackedScene" uid="uid://cyg4vcpgpwhc4" path="res://Scenes/player.tscn" id="2_rttr3"]
+[ext_resource type="PackedScene" uid="uid://c4hi67c53l2rg" path="res://Scenes/enemy.tscn" id="4_wmywh"]
+[ext_resource type="Resource" uid="uid://bpt22g8nbbcsy" path="res://Resources/Enemies/fly_guy.tres" id="5_63byg"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_wktnc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAEAAAABAAAAAAACAAEAAAACAAAAAAACAAEAAAADAAAAAAACAAEAAAAEAAAAAAACAAEAAAAFAAAAAAACAAYAAAAGAAAAAAACAAYAAAAFAP//AAACAAYAAAAGAP//AAACAAYAAAAFAP7/AAACAAEAAAAGAP7/AAACAAEAAAAAAAEAAAACAAYAAAABAAEAAAACAAYAAAACAAEAAAACAAYAAAADAAEAAAACAAYAAAAEAAEAAAACAAYAAAAFAAEAAAACAAYAAAAGAAEAAAACAAYAAAAAAAIAAAACAAYAAAABAAIAAAACAAYAAAACAAIAAAACAAYAAAADAAIAAAACAAYAAAAEAAIAAAACAAYAAAAFAAIAAAACAAYAAAAGAAIAAAACAAYAAAAAAAMAAAACAAYAAAABAAMAAAACAAYAAAACAAMAAAACAAYAAAADAAMAAAACAAYAAAAEAAMAAAACAAYAAAAFAAMAAAACAAYAAAAGAAMAAAACAAYAAAD//wEAAAACAAYAAAD+/wEAAAACAAYAAAD9/wEAAAACAAYAAAD8/wEAAAACAAYAAAD7/wEAAAACAAYAAAD7/wIAAAACAAYAAAD8/wIAAAACAAYAAAD9/wIAAAACAAYAAAD+/wIAAAACAAYAAAD//wIAAAACAAYAAAD7/wMAAAACAAYAAAD8/wMAAAACAAYAAAD9/wMAAAACAAYAAAD+/wMAAAACAAYAAAD//wMAAAACAAYAAAD//wAAAAACAAEAAAD+/wAAAAACAAEAAAD9/wAAAAACAAEAAAD8/wAAAAACAAEAAAD7/wAAAAACAAEAAAAKAP7/AAACAAEAAAALAP7/AAACAAEAAAAMAP7/AAACAAEAAAAKAP//AAACAAYAAAALAP//AAACAAYAAAAMAP//AAACAAYAAAAKAAAAAAACAAYAAAALAAAAAAACAAYAAAAMAAAAAAACAAYAAAAOAP7/AAAMAAYAAAAPAP7/AAANAAYAAAAQAP7/AAANAAYAAAARAP7/AAANAAYAAAASAP7/AAAOAAUAAAASAP3/AAANAAQAAAATAP3/AAANAAYAAAAUAP3/AAANAAYAAAAVAP3/AAAOAAQAAAAVAP7/AAAPAAUAAAAVAP//AAANAAUAAAAWAP//AAANAAYAAAAXAP//AAAOAAYAAAA=")
 tile_set = ExtResource("1_2jcgy")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(40, -16)
-script = ExtResource("2_v2r7k")
+[node name="Player" parent="." instance=ExtResource("2_rttr3")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("3_rviuf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CapsuleShape2D_7du6m")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-40, 16)
+[node name="Enemy" parent="." instance=ExtResource("4_wmywh")]
+position = Vector2(152, -53)
+enemy_type = ExtResource("5_63byg")
