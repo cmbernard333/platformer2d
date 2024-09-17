@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=4 uid="uid://dubanbsjjmxaj"]
+
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_47o6w"]
+[ext_resource type="TileSet" uid="uid://7qpggw78giuw" path="res://Resources/Tilesets/main.tres" id="2_k12yt"]
+[ext_resource type="PackedScene" uid="uid://ctltdpvm6mwd4" path="res://Scenes/player.tscn" id="3_71at5"]
+[ext_resource type="PackedScene" uid="uid://cw4v7ox5wh41g" path="res://Scenes/enemy.tscn" id="4_xx22r"]
+[ext_resource type="Resource" uid="uid://bpt22g8nbbcsy" path="res://Resources/Enemies/fly_guy.tres" id="5_geymx"]
+[ext_resource type="PackedScene" uid="uid://b6igge241q7xk" path="res://Scenes/spikes.tscn" id="6_u817b"]
+[ext_resource type="Script" path="res://Scripts/spikes.gd" id="7_a64nw"]
+[ext_resource type="PackedScene" uid="uid://c7o3o8jn5oa3d" path="res://Scenes/coin.tscn" id="8_c8v1d"]
+[ext_resource type="PackedScene" uid="uid://c0ow82noxvwps" path="res://Scenes/level_ui.tscn" id="9_btu24"]
+[ext_resource type="PackedScene" uid="uid://dl1siabodbbal" path="res://Scenes/end_flag.tscn" id="10_luw40"]
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource("1_47o6w")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAEAAAABAAAAAAACAAEAAAACAAAAAAACAAEAAAADAAAAAAACAAEAAAAEAAAAAAACAAEAAAAFAAAAAAACAAYAAAAGAAAAAAACAAYAAAAFAP//AAACAAYAAAAGAP//AAACAAYAAAAFAP7/AAACAAEAAAAGAP7/AAACAAEAAAAAAAEAAAACAAYAAAABAAEAAAACAAYAAAACAAEAAAACAAYAAAADAAEAAAACAAYAAAAEAAEAAAACAAYAAAAFAAEAAAACAAYAAAAGAAEAAAACAAYAAAAAAAIAAAACAAYAAAABAAIAAAACAAYAAAACAAIAAAACAAYAAAADAAIAAAACAAYAAAAEAAIAAAACAAYAAAAFAAIAAAACAAYAAAAGAAIAAAACAAYAAAAAAAMAAAACAAYAAAABAAMAAAACAAYAAAACAAMAAAACAAYAAAADAAMAAAACAAYAAAAEAAMAAAACAAYAAAAFAAMAAAACAAYAAAAGAAMAAAACAAYAAAD//wEAAAACAAYAAAD+/wEAAAACAAYAAAD9/wEAAAACAAYAAAD8/wEAAAACAAYAAAD7/wEAAAACAAYAAAD7/wIAAAACAAYAAAD8/wIAAAACAAYAAAD9/wIAAAACAAYAAAD+/wIAAAACAAYAAAD//wIAAAACAAYAAAD7/wMAAAACAAYAAAD8/wMAAAACAAYAAAD9/wMAAAACAAYAAAD+/wMAAAACAAYAAAD//wMAAAACAAYAAAD//wAAAAACAAEAAAD+/wAAAAACAAEAAAD9/wAAAAACAAEAAAD8/wAAAAACAAEAAAD7/wAAAAACAAEAAAAKAP7/AAACAAEAAAALAP7/AAACAAEAAAAMAP7/AAACAAEAAAAKAP//AAACAAYAAAALAP//AAACAAYAAAAMAP//AAACAAYAAAAKAAAAAAACAAYAAAALAAAAAAACAAYAAAAMAAAAAAACAAYAAAAOAP7/AAAMAAYAAAAPAP7/AAANAAYAAAAQAP7/AAANAAYAAAARAP7/AAANAAYAAAASAP7/AAAOAAUAAAASAP3/AAANAAQAAAATAP3/AAANAAYAAAAUAP3/AAANAAYAAAAVAP3/AAAOAAQAAAAVAP7/AAAPAAUAAAAVAP//AAANAAUAAAAWAP//AAANAAYAAAAXAP//AAAOAAYAAAA=")
+tile_set = ExtResource("2_k12yt")
+
+[node name="Player" parent="." instance=ExtResource("3_71at5")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_xx22r")]
+position = Vector2(152, -53)
+enemy_type = ExtResource("5_geymx")
+
+[node name="Spikes" parent="." instance=ExtResource("6_u817b")]
+position = Vector2(135, 63)
+script = ExtResource("7_a64nw")
+
+[node name="Spikes2" parent="." instance=ExtResource("6_u817b")]
+position = Vector2(153, 63)
+script = ExtResource("7_a64nw")
+
+[node name="Spikes3" parent="." instance=ExtResource("6_u817b")]
+position = Vector2(171, 63)
+script = ExtResource("7_a64nw")
+
+[node name="Coin" parent="." instance=ExtResource("8_c8v1d")]
+position = Vector2(208, -49)
+
+[node name="Coin2" parent="." instance=ExtResource("8_c8v1d")]
+position = Vector2(-78, -15)
+
+[node name="LevelUI" parent="." instance=ExtResource("9_btu24")]
+
+[node name="EndFlag" parent="." instance=ExtResource("10_luw40")]
+position = Vector2(412, -25)
+next_level = "res://Scenes/level2_1.tscn"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0ow82noxvwps"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1lpg2"]
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelUI" type="CanvasLayer"]
+
+[node name="ScoreText" type="Label" parent="."]
+offset_left = 954.0
+offset_top = 12.0
+offset_right = 1135.0
+offset_bottom = 79.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_1lpg2")
