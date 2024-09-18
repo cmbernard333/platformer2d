@@ -14,7 +14,7 @@ var t: float = 0.0
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		SignalBus.coin_collected.emit(score_amount)
-		queue_free()
+		queue_free.call_deferred()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

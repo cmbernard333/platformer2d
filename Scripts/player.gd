@@ -28,8 +28,7 @@ func _ready() -> void:
 # applies physics every frame
 # TODO smooth acceleration and de-celeration
 func _physics_process(delta: float) -> void:
-	if global_position.y > 100:
-		game_over()
+
 	# if we are not on the floor, apply gravity based on the delta between frames
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -44,3 +43,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_force
 	# apply velocity to CharacterBody2D and process movement
 	move_and_slide()
+	
+	if global_position.y > 100:
+		game_over()
